@@ -1,0 +1,54 @@
+.productFullPage {
+  width: 100%;
+  height: 100%;
+  background: #fffcfa;
+}
+.productFullPage .section1 {
+  border: 2px solid red;
+  width: 100%;
+  min-height: 100vh;
+  padding: 8rem 0rem 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+.productFullPage .section1 .itemsCard {
+  border: 2px solid coral;
+  width: 20rem;
+  height: 45vh;
+}
+.productFullPage .section1 .itemsCard .img {
+  width: 100%;
+  height: 70%;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.productFullPage .section1 .itemsCard .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.productFullPage .section1 .itemsCard .productDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: "Comfortaa", sans-serif;
+}
+.productFullPage .section1 .itemsCard .productDetails .price,
+.productFullPage .section1 .itemsCard .productDetails .rating {
+  padding-left: 0.2rem;
+}
+.productFullPage .section1 .itemsCard .productDetails .price {
+  font-size: 0.9rem;
+}
+.productFullPage .section1 .itemsCard .productDetails .rating {
+  display: flex;
+  align-items: center;
+}
+.productFullPage .section1 .itemsCard .productDetails .rating .star {
+  font-size: 1.35rem;
+  color: rgb(233, 198, 4);
+}/*# sourceMappingURL=Products.module.css.map */

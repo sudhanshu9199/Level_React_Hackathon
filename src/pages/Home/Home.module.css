@@ -1,0 +1,490 @@
+.section1 {
+  width: 100%;
+  padding: 8rem 3rem 3rem 3rem;
+  display: flex;
+  align-items: flex-start;
+  height: 100vh;
+  background: #ebe8de;
+}
+.section1 .right {
+  width: 30%;
+  height: 100%;
+  position: relative;
+}
+.section1 .right .frame {
+  width: 24vw;
+  height: 31vw;
+  overflow: hidden; /* hides image outside the clip */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
+}
+.section1 .right .frame img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  transform: scaleX(-1);
+  clip-path: inset(0 0 0 0 round 500px 500px 0 0);
+}
+.section1 .middle {
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+.section1 .middle .topImg {
+  position: absolute;
+  left: 50%;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(219, 62, 62);
+}
+.section1 .middle .midImg {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+}
+.section1 .middle .lastImg {
+  position: absolute;
+  right: 7%;
+  top: 26%;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+}
+.section1 .middle .itemImg {
+  position: absolute;
+  right: 7%;
+  bottom: 0%;
+  width: 15rem;
+  height: 13rem;
+  border-radius: 0.5rem;
+  background-position: center;
+  transform: scaleX(-1);
+  filter: drop-shadow(-2px 2px 1px black);
+}
+.section1 .middle .textPart {
+  position: absolute;
+  top: 0%;
+  transform: translate(0%, 50%);
+}
+.section1 .middle .smallText {
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+  color: #eac16b;
+}
+.section1 .middle .boldText {
+  font-size: 4.1vw;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  line-height: 5rem;
+}
+.section1 .middle .smallTextPart {
+  position: absolute;
+  right: 17%;
+  bottom: 40%;
+  font-size: 1.1vw;
+}
+.section1 .AboutBtn {
+  display: flex;
+  background: #000;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: aliceblue;
+  padding: 0.8rem 1.2rem;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-size: 1.3rem;
+}
+.section1 .AboutBtn:active {
+  transform: scale(0.95);
+}
+
+.section2 {
+  background: linear-gradient(78deg, rgb(14, 14, 16) 0%, rgb(38, 34, 38) 50%, rgb(108, 107, 112) 100%);
+  width: 100%;
+  height: 85vh;
+  color: white;
+  padding: 10rem 3rem 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.section2 .mixedBg {
+  position: absolute;
+  background: linear-gradient(180deg, rgb(235, 232, 222) 21%, rgba(0, 0, 0, 0) 63%);
+  width: 100%;
+  height: 8rem;
+  left: 0;
+  top: 0;
+}
+.section2 .leftTexts {
+  position: relative;
+}
+.section2 .leftTexts .topText {
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+  color: #eac16b;
+}
+.section2 .leftTexts .header {
+  font-size: 3.1vw;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 600;
+  line-height: 4rem;
+}
+.section2 .leftTexts img {
+  position: absolute;
+  width: 20rem;
+  bottom: 5%;
+  right: 30%;
+}
+.section2 .sraddhaImage {
+  position: relative;
+  width: 20%;
+}
+.section2 .sraddhaImage .frame {
+  width: 24vw;
+  height: 65vh;
+  overflow: hidden; /* hides image outside the clip */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  right: 0%;
+  filter: drop-shadow(0px 0px 5px gold);
+}
+.section2 .sraddhaImage .frame img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  transform: scaleX(-1);
+  clip-path: inset(0 0 0 0 round 500px 500px 0 0);
+}
+.section2 .sraddhaImage .withProduct {
+  position: absolute;
+  border: 2px solid white;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  z-index: 1;
+  bottom: 10%;
+  left: -130%;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section3 {
+  width: 100%;
+  height: 100vh;
+  padding: 0rem 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f7f7f7;
+  overflow: hidden;
+}
+.section3 .firstGrid {
+  display: flex;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+.section3 .firstGrid .gridInnerText {
+  height: 45vh;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  margin-right: 1rem;
+}
+.section3 .firstGrid .gridInnerText .topText {
+  text-align: end;
+  font-size: 4.5rem;
+  color: rgb(169, 169, 169);
+  line-height: 0.9;
+}
+.section3 .firstGrid .gridInner {
+  height: 47vh;
+  width: 19rem;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.section3 .firstGrid .gridInner .frame {
+  width: inherit;
+  height: inherit;
+  overflow: hidden; /* hides image outside the clip */
+}
+.section3 .firstGrid .gridInner .frame img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  transform: scaleX(-1);
+  clip-path: inset(0 0 0 0 round 500px 500px 0 0);
+}
+.section3 .secGrid {
+  display: flex;
+  gap: 1rem;
+}
+.section3 .secGrid .gridInner {
+  height: 47vh;
+  width: 19rem;
+  z-index: 2;
+}
+.section3 .secGrid .gridInner .frame {
+  width: inherit;
+  height: inherit;
+  overflow: hidden; /* hides image outside the clip */
+}
+.section3 .secGrid .gridInner .frame img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  transform: scaleX(-1);
+  clip-path: inset(0 0 0 0 round 0 0 500px 500px);
+}
+.section3 .secGrid .gridInnerDraw {
+  width: 20vw;
+  position: relative;
+}
+.section3 .secGrid .gridInnerDraw img {
+  width: inherit;
+  position: absolute;
+  left: -40%;
+  bottom: -9%;
+  z-index: 1;
+}
+
+.section4 {
+  width: 100%;
+  min-height: 100%;
+  padding: 2rem 3rem 0 3rem;
+}
+.section4 .view1 .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+.section4 .view1 .head .everyday {
+  font-size: 1.7rem;
+  font-weight: 500;
+  font-family: "Bebas Neue", sans-serif;
+}
+.section4 .view1 .head .all {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+}
+.section4 .view1 .withItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.section4 .view1 .withItems .leftNav,
+.section4 .view1 .withItems .rightNav {
+  border: 2.2px double black;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: absolute;
+}
+.section4 .view1 .withItems .leftNav i,
+.section4 .view1 .withItems .rightNav i {
+  font-size: 1.5rem;
+}
+.section4 .view1 .withItems .leftNav:active,
+.section4 .view1 .withItems .rightNav:active {
+  transform: scale(0.9);
+}
+.section4 .view1 .withItems .leftNav.disabled,
+.section4 .view1 .withItems .rightNav.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
+}
+.section4 .view1 .withItems .leftNav {
+  left: -1%;
+}
+.section4 .view1 .withItems .rightNav {
+  right: -1%;
+}
+.section4 .view1 .withItems .itemsOuterLayer {
+  width: 90vw;
+  overflow: hidden;
+  height: 29.5rem;
+}
+.section4 .view1 .withItems .items {
+  width: 85vw;
+  height: 28rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+.section4 .view1 .withItems .items .itemCard {
+  height: inherit;
+  width: 25%;
+  font-family: "Roboto Condensed", sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.section4 .view1 .withItems .items .itemCard .productImage {
+  width: 100%;
+  height: 60%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.section4 .view1 .withItems .items .itemCard .productDetails {
+  padding: 0.3rem 0.4rem;
+  height: 40%;
+  position: relative;
+}
+.section4 .view1 .withItems .items .itemCard .productDetails .goldOps {
+  height: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.section4 .view1 .withItems .items .itemCard .productDetails .goldOps .sample {
+  border: 1px solid rgb(189, 189, 189);
+  padding: 0.1rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+}
+.section4 .view1 .withItems .items .itemCard .productDetails .productName {
+  padding: 0.2rem 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.section4 .view1 .withItems .items .itemCard .productDetails .productPrice {
+  padding: 0.3rem 0.4rem;
+}
+.section4 .view1 .withItems .items .itemCard .productDetails .addToBag {
+  background: linear-gradient(135deg, #000 0%, #3b2d1f 100%);
+  color: whitesmoke;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 4%;
+  left: 2%;
+  right: 2%;
+  cursor: pointer;
+}
+.section4 .view1 .withItems .items .itemCard .productDetails .addToBag i {
+  font-size: 1.2rem;
+}
+.section4 .view1 .withItems .items .itemCard:hover {
+  box-shadow: 0px 5px 12px black;
+}
+.section4 .view1 .withItems .items .itemCard:hover .productImage {
+  transform: scale(1.05);
+}
+.section4 .view1 .withItems .items .itemCard:hover .addToBag {
+  opacity: 1;
+  pointer-events: auto;
+}
+.section4 .view2 .carouselWrapper {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  perspective: 1000px;
+}
+.section4 .view2 .carouselWrapper .head {
+  margin-bottom: 1.3rem;
+}
+.section4 .view2 .carouselWrapper .head p {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #222222;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+.section4 .view2 .carousel {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section4 .view2 .card {
+  position: absolute;
+  width: 450px;
+  height: 650px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  transform-style: preserve-3d;
+  cursor: grab;
+  transition: transform 0.3s ease;
+}
+.section4 .view2 .card:active {
+  cursor: grabbing;
+}
+.section4 .view2 .card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(95%);
+  transition: all 0.5s ease;
+}
+.section4 .view2 .card .text {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: white;
+  background: rgb(255, 255, 255);
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.section4 .view2 .card:hover img {
+  transform: scale(1.05);
+  filter: brightness(100%);
+}/*# sourceMappingURL=Home.module.css.map */
