@@ -1,13 +1,16 @@
-import Navbar from "./components/Navbar/Navbar"
-import MainRouter from "./router/MainRouter"
+import Navbar from "./components/Navbar/Navbar";
+import MainRouter from "./router/MainRouter";
+import { SearchProvider } from "./context/SearchContext";
 
 const App = () => {
   return (
     <div>
-      <Navbar />
-      <MainRouter />
+      <SearchProvider>
+        <Navbar />
+        <MainRouter />
+      </SearchProvider>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -2,21 +2,22 @@
   width: 100%;
   height: 100%;
   background: #fffcfa;
+  overflow-x: hidden;
 }
 .productFullPage .section1 {
-  border: 2px solid red;
   width: 100%;
   min-height: 100vh;
-  padding: 8rem 0rem 1rem 1rem;
+  padding: 8rem 0rem 1rem 3rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  row-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  row-gap: 3rem;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 .productFullPage .section1 .itemsCard {
-  border: 2px solid coral;
-  width: 20rem;
+  position: relative;
+  transform-origin: center;
+  width: 18rem;
   height: 45vh;
 }
 .productFullPage .section1 .itemsCard .img {
@@ -24,12 +25,36 @@
   height: 70%;
   margin-bottom: 1rem;
   overflow: hidden;
+  position: relative;
 }
 .productFullPage .section1 .itemsCard .img img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: transform 1s ease, opacity 0.6s ease;
+}
+.productFullPage .section1 .itemsCard .img .mainImg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.productFullPage .section1 .itemsCard .img .hoverImg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(1.05);
+}
+.productFullPage .section1 .itemsCard .img:hover .mainImg {
+  transform: scale(1.08);
+}
+.productFullPage .section1 .itemsCard .img:has(.hoverImg):hover .mainImg {
+  opacity: 0;
+}
+.productFullPage .section1 .itemsCard .img:has(.hoverImg):hover .hoverImg {
+  opacity: 1;
+  transform: scale(1);
 }
 .productFullPage .section1 .itemsCard .productDetails {
   display: flex;
@@ -51,4 +76,11 @@
 .productFullPage .section1 .itemsCard .productDetails .rating .star {
   font-size: 1.35rem;
   color: rgb(233, 198, 4);
+}
+.productFullPage .loadingText,
+.productFullPage .endText {
+  text-align: center;
+  padding: 2rem;
+  color: #b79a7e;
+  font-family: "Playfair Display", serif;
 }/*# sourceMappingURL=Products.module.css.map */

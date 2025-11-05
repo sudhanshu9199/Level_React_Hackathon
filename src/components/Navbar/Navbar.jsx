@@ -2,9 +2,11 @@ import style from "./Navbar.module.scss";
 import { NavLink, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavbarAnimation } from "./useNavbarAnimation";
+import { useSearch } from "../../context/SearchContext";
 const Navbar = () => {
   const { show } = useNavbarAnimation();
   const location = useLocation();
+  const { setsearchTerm } = useSearch();
 
   const isProductPage = location.pathname === "/products";
   return (
@@ -35,7 +37,7 @@ const Navbar = () => {
               ease: "easeOut",
             }}
           >
-            <input type="text" placeholder="Search your items" />
+            <input type="text" placeholder="Search your items" onChange={e => setsearchTerm(e.target.value)} />
             <i className={`ri-search-line ${style.searchIcon}`}></i>
           </motion.div>
         )}

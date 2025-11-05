@@ -1,8 +1,10 @@
-import React from 'react'
+import { useState } from 'react'
+import { productsData } from '../productsData'
+import style from './productDetail.module.scss';
 
 const ProductDetail = () => {
   return (
-    <div>ProductDetail</div>
+    <div className={style.productDetsContainer}>ProductDetail</div>
   )
 }
 
