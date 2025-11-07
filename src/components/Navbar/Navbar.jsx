@@ -74,7 +74,9 @@ const Navbar = () => {
           <p>Heirlooms</p>
         </NavLink>
         <i className={`ri-user-line ${style.userIcon}`}></i>
-        <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>
+        <NavLink to='/cart'>
+          <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>
+        </NavLink>
       </div>
     </motion.nav>
   );

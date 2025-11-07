@@ -32,10 +32,6 @@
           height: 100%;
           object-fit: cover;
           transition: transform 1s ease, opacity 0.6s ease;
-
-        //   &:hover {
-        //     transform: scale(1.08);
-        //   }
         }
         .mainImg {
           position: absolute;
@@ -50,20 +46,44 @@
           transform: scale(1.05);
         }
         // 🪄 Common scale effect on hover
-  &:hover .mainImg {
-    transform: scale(1.08);
-  }
+        &:hover .mainImg {
+          transform: scale(1.08);
+        }
 
-  // 🪄 Only if hoverImg exists → fade transition applies
-  &:has(.hoverImg):hover {
-    .mainImg {
-      opacity: 0;
-    }
-    .hoverImg {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+        // 🪄 Only if hoverImg exists → fade transition applies
+        &:has(.hoverImg):hover {
+          .mainImg {
+            opacity: 0;
+          }
+          .hoverImg {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        &:hover {
+            .addToBagBtn {
+                position: absolute;
+                z-index: 3;
+                font-size: 0.5rem;
+                font-weight: 700;
+                font-family: "Comfortaa", sans-serif;
+                bottom: 3%;
+                right: 2%;
+                background: #ffffff;
+                color: black;
+                padding: 0.3rem 0.5rem;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+    
+                &:hover {
+                    background: #000000;
+                color: rgb(255, 255, 255);
+                }
+            }
+
+        }
       }
       .productDetails {
         display: flex;

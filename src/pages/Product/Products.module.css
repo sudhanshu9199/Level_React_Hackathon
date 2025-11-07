@@ -56,6 +56,25 @@
   opacity: 1;
   transform: scale(1);
 }
+.productFullPage .section1 .itemsCard .img:hover .addToBagBtn {
+  position: absolute;
+  z-index: 3;
+  font-size: 0.5rem;
+  font-weight: 700;
+  font-family: "Comfortaa", sans-serif;
+  bottom: 3%;
+  right: 2%;
+  background: #ffffff;
+  color: black;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.productFullPage .section1 .itemsCard .img:hover .addToBagBtn:hover {
+  background: #000000;
+  color: rgb(255, 255, 255);
+}
 .productFullPage .section1 .itemsCard .productDetails {
   display: flex;
   flex-direction: column;

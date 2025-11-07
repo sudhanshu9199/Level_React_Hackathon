@@ -1,0 +1,210 @@
+.cartFullPage {
+  width: 100%;
+  //   gap: 3rem;
+  min-height: 100vh;
+  display: flex;
+
+  .left {
+    padding: 5rem 0rem 1rem 3rem;
+    width: 65%;
+    min-height: 100vh;
+    // border: 2px solid red;
+    .pageName {
+      font-size: 3rem;
+      font-family: "Nanum Myeongjo", serif;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .itemsList {
+      min-height: 100vh;
+
+      .headers {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        p {
+          font-size: 0.9rem;
+          font-family: "Arimo", sans-serif;
+          font-weight: 500;
+          color: #6e0754;
+          text-transform: uppercase;
+        }
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 1rem;
+        font-family: "Roboto Condensed", sans-serif;
+        position: relative;
+
+        .first1 {
+            // border: 2px solid chocolate;
+          display: flex;
+          flex-direction: column;
+          gap: 0.4rem;
+          width: 10rem;
+          align-items: center;
+          text-align: start;
+          .img {
+            width: inherit;
+            height: 9rem;
+            background: red;
+            object-fit: cover;
+          }
+          .name {
+            font-size: 0.9rem;
+            font-weight: 600;
+          }
+          .type {
+            color: rgb(159, 161, 161);
+            font-size: 0.8rem;
+          }
+        }
+
+        .second1 {
+            // border: 2px solid gray;
+          width: 9rem;
+          text-align: right;
+        }
+
+        .quantityControl {
+          display: flex;
+          align-items: flex-end;
+          //   border: 2px solid darkcyan;
+          justify-content: center;
+          gap: 1rem;
+
+          .subtIcon,
+          .addIcon {
+            font-size: 1.2rem;
+          }
+
+          .quantity {
+            font-size: 1.1rem;
+          }
+        }
+
+        .third1 {
+            // border: 2px solid rgb(0, 5, 139);
+          width: 9rem;
+          text-align: end;
+        }
+
+        .removeIcon {
+            position: absolute;
+            top: 0;
+            left: 17%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: rotate(90deg);
+            }
+        }
+      }
+    }
+  }
+  .right {
+    width: 35%;
+    min-height: 100vh;
+    background: #ffadce;
+    padding: 5rem 3rem 1rem 3rem;
+    // border: 2px solid rgb(124, 124, 2);
+
+    .line {
+      width: 70%;
+      background: #000;
+      height: 0.3rem;
+    }
+
+    .beforeDetails {
+      width: 20rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 6rem;
+      position: sticky;
+      top: 25%;
+
+      .totalCart {
+        display: flex;
+        align-items: flex-end;
+        font-family: "Lexend", sans-serif;
+        gap: 1.4rem;
+
+        .textCart {
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          opacity: 0.8;
+          letter-spacing: 0.1rem;
+        }
+
+        .prices {
+          font-size: 1.2rem;
+        }
+      }
+
+      .littleDesc1 {
+        font-family: "Rajdhani", sans-serif;
+        margin-top: 0.3rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .terms {
+        margin-top: 3rem;
+        display: flex;
+        align-items: flex-end;
+        gap: 0.8rem;
+
+        input {
+          width: 1.3rem;
+          height: 1.3rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          font-family: "Borel", cursive;
+
+          .link {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .checkout {
+        display: flex;
+        gap: 0.5rem;
+        align-items: flex-end;
+        background: #000;
+        color: whitesmoke;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-top: 8rem;
+
+        p {
+            font-family: "Lexend", sans-serif;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.1rem;
+        }
+        i {
+            font-size: 1.13rem;
+        }
+
+        &:active {
+            scale: 0.93;
+        }
+      }
+    }
+  }
+}

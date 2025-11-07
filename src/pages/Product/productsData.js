@@ -5,7 +5,7 @@ export const productsData = [
     price: 1539.3,
     rating: 5,
     reviews: 3,
-    desc: "",
+    desc: "Write",
     catogery: "New Areivals",
     img: "https://palmonas.com/cdn/shop/files/RG0065-6.jpg?v=1762003558",
     img2: "https://palmonas.com/cdn/shop/files/DSC00498.webp?v=1762003558"
@@ -75,6 +75,7 @@ export const productsData = [
     desc: "",
     img: "https://palmonas.com/cdn/shop/files/01_e869a853-ae2b-4543-8f22-61455b80f6a6.webp?v=1744528231",
     img2: "https://palmonas.com/cdn/shop/files/product_1_4ece22f3-45f4-4c3c-b306-d91f8c41fe28.jpg?v=1754386754",
+    vid1: "https://palmonas.com/cdn/shop/videos/c/vp/f99b0ab216d343f78d7fdf847c694775/f99b0ab216d343f78d7fdf847c694775.HD-1080p-7.2Mbps-54319073.mp4?v=0",
   },
   {
     id: 9,

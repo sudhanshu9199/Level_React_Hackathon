@@ -4,6 +4,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { productsData } from "./productsData";
 import { useEffect, useRef, useState } from "react";
 import { useSearch } from "../../context/SearchContext";
+import { useCart } from "../../context/CartContext";
 // anime
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -17,7 +18,10 @@ const Products = () => {
     productsData.slice(0, 7)
   );
 
-  const filteredProducts = visibleProducts.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredProducts = visibleProducts.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  const { addToCart } = useCart();
   const containerRef = useRef(null);
 
   const fetchMoreData = () => {
@@ -68,11 +72,19 @@ const Products = () => {
         }
       >
         <section className={style.section1}>
-          {(filteredProducts.length > 0 ? filteredProducts : visibleProducts).map(product => (
-                <div key={product.id} className={style.itemsCard}>
+          {(filteredProducts.length > 0
+            ? filteredProducts
+            : visibleProducts
+          ).map((product) => (
+            <div key={product.id} className={style.itemsCard}>
               <div className={style.img}>
                 <Link to={`/product/${product.id}`}>
-                  <img src={product.img} alt={product.name} loading="lazy" className={style.mainImg}/>
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    loading="lazy"
+                    className={style.mainImg}
+                  />
                   {product.img2 && (
                     <img
                       src={product.img2}
@@ -82,6 +94,7 @@ const Products = () => {
                     />
                   )}
                 </Link>
+                <p className={style.addToBagBtn} onClick={() => addToCart(product)}>ADD TO BAG</p>
               </div>
               <div className={style.productDetails}>
                 <p className={style.productName}>{product.name}</p>
