@@ -6,6 +6,10 @@
   height: 100vh;
   background: #ebe8de;
 }
+.section1 .link {
+  text-decoration: none;
+  color: inherit;
+}
 .section1 .right {
   width: 30%;
   height: 100%;

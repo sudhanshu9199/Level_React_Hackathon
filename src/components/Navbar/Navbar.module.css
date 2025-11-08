@@ -10,6 +10,46 @@
   top: 0;
   z-index: 10;
 }
+.navbar .textRoll {
+  display: inline-block;
+}
+.navbar .textRoll:hover .letter, .navbar .textRoll.play .letter {
+  transform: translateY(-100%);
+}
+.navbar .textRoll .block:last-child {
+  color: #c93d4b;
+}
+.navbar .textRoll .letter {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.navbar .textRoll .letter:nth-child(1) {
+  transition-delay: 0s;
+}
+.navbar .textRoll .letter:nth-child(2) {
+  transition-delay: 0.015s;
+}
+.navbar .textRoll .letter:nth-child(3) {
+  transition-delay: 0.03s;
+}
+.navbar .textRoll .letter:nth-child(4) {
+  transition-delay: 0.045s;
+}
+.navbar .textRoll .letter:nth-child(5) {
+  transition-delay: 0.06s;
+}
+.navbar .textRoll .letter:nth-child(6) {
+  transition-delay: 0.075s;
+}
+.navbar .textRoll .letter:nth-child(7) {
+  transition-delay: 0.09s;
+}
+.navbar .textRoll .letter:nth-child(8) {
+  transition-delay: 0.105s;
+}
+.navbar .textRoll .letter:nth-child(9) {
+  transition-delay: 0.12s;
+}
 .navbar .logoWrapper {
   flex: 1;
   display: flex;
@@ -21,6 +61,8 @@
   font-size: 2.1vw;
   text-transform: uppercase;
   letter-spacing: 0.18rem;
+  height: 40px;
+  overflow: hidden;
 }
 .navbar a {
   text-decoration: none;
@@ -68,11 +110,8 @@
   text-transform: uppercase;
   font-size: 1vw;
   cursor: pointer;
-}
-.navbar .usersRight p:hover {
-  -webkit-text-decoration: underline 0.1rem goldenrod;
-          text-decoration: underline 0.1rem goldenrod;
-  text-underline-offset: 0.25rem;
+  height: 22px;
+  overflow: hidden;
 }
 .navbar .usersRight i {
   font-size: 1.5rem;

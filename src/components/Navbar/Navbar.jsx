@@ -3,12 +3,43 @@ import { NavLink, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavbarAnimation } from "./useNavbarAnimation";
 import { useSearch } from "../../context/SearchContext";
+import { useEffect, useRef } from "react";
+
+const RollingText = ({ text }) => {
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const el = textRef.current;
+    if (!el) return;
+    el.addEventListener("mouseover", () => el.classList.remove(style.play));
+    return () => el.removeEventListener("mouseover", () => el.classList.remove(style.play));
+  }, []);
+
+  const letters = text.split("").map((letter, i) => (
+    <span
+      key={i}
+      className={style.letter}
+      style={{ transitionDelay: `${i * 0.015}s` }}
+    >
+      {letter === " " ? "\u00A0" : letter}
+    </span>
+  ));
+
+  return (
+    <div ref={textRef} className={`${style.textRoll} ${style.play}`}>
+      <div className={style.block}>{letters}</div>
+      <div className={style.block}>{letters}</div>
+    </div>
+  );
+};
+
 const Navbar = () => {
   const { show } = useNavbarAnimation();
   const location = useLocation();
   const { setsearchTerm } = useSearch();
 
   const isProductPage = location.pathname === "/products";
+
   return (
     <motion.nav
       className={style.navbar}
@@ -37,7 +68,11 @@ const Navbar = () => {
               ease: "easeOut",
             }}
           >
-            <input type="text" placeholder="Search your items" onChange={e => setsearchTerm(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Search your items"
+              onChange={(e) => setsearchTerm(e.target.value)}
+            />
             <i className={`ri-search-line ${style.searchIcon}`}></i>
           </motion.div>
         )}
@@ -58,9 +93,9 @@ const Navbar = () => {
               opacity: 1,
             }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className={style.mainLogo}
+            className={`${style.mainLogo}`}
           >
-            Palmonas
+            <RollingText text="Palmonas" />
           </motion.p>
         </NavLink>
       </motion.div>
@@ -71,10 +106,14 @@ const Navbar = () => {
         }`}
       >
         <NavLink to="/products">
-          <p>Heirlooms</p>
+          <p
+            className={`rolling-text play ${style.textRoll}`}
+          >
+            <RollingText text="Heirlooms" />
+          </p>
         </NavLink>
         <i className={`ri-user-line ${style.userIcon}`}></i>
-        <NavLink to='/cart'>
+        <NavLink to="/cart">
           <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>
         </NavLink>
       </div>

@@ -14,6 +14,7 @@ import onLineDrawing from "../../assets/Model_Images/sec3_OneLine.jpg";
 import { useState } from "react";
 import EverydayProduct from "./EverydayProduct.jsx";
 import CarouselSlide from "./CarouselSlide.jsx";
+import { Link } from "react-router";
 
 const Home = () => {
   const index = useImageSlider(4);
@@ -46,9 +47,11 @@ const Home = () => {
               <br />
               jewellery
             </p>
+              <Link to='/about' className={style.link}>
             <div className={style.AboutBtn}>
               <p>About Us</p>
             </div>
+            </Link>
           </div>
           <div
             className={style.midImg}

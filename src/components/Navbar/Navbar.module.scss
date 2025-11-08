@@ -9,25 +9,53 @@
   right: 0;
   top: 0;
   z-index: 10;
-  
+
+  .textRoll {
+    // border: 2px solid red;
+    display: inline-block;
+
+    &:hover .letter,
+    &.play .letter {
+      transform: translateY(-100%);
+    }
+
+    .block:last-child {
+      color: #c93d4b;
+    }
+
+    .letter {
+      display: inline-block;
+      transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+
+      // Using Sass loop for cleaner nth-child delays
+      @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+          transition-delay: 0.015s * ($i - 1);
+        }
+      }
+    }
+  }
+
   .logoWrapper {
     flex: 1;
     display: flex;
     justify-content: center;
     transition: all 0.4s ease;
     .mainLogo {
-    font-family: "Montserrat", sans-serif;
-    font-size: 2.1vw;
-    text-transform: uppercase;
-    letter-spacing: 0.18rem;
-  }
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.1vw;
+      text-transform: uppercase;
+      letter-spacing: 0.18rem;
+      height: 40px;
+      // border: 2px solid red;
+      overflow: hidden;
+    }
   }
 
   a {
     text-decoration: none;
     color: inherit;
   }
-  
 
   .searchbar {
     background: #f7e0c2;
@@ -75,11 +103,14 @@
       text-transform: uppercase;
       font-size: 1vw;
       cursor: pointer;
+      height: 22px;
+      // border: 2px solid red;
+      overflow: hidden;
 
-      &:hover {
-        text-decoration: underline 0.1rem goldenrod;
-        text-underline-offset: 0.25rem;
-      }
+      // &:hover {
+      //   text-decoration: underline 0.1rem goldenrod;
+      //   text-underline-offset: 0.25rem;
+      // }
     }
 
     i {
