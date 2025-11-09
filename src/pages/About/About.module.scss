@@ -1,10 +1,84 @@
 section {
   width: 100%;
   height: 100%;
-  padding: 3rem 1rem 1rem 1rem;
+  padding: 4rem 1rem 1rem 1rem;
 }
 
-.section2 {
+.section1 {
+  width: 100%;
+  height: 90vh;
+
+  .heroImg {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.section2,
+.section3 {
+  font-family: "Roboto Condensed", sans-serif;
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem 2rem 25svh 2rem;
+  background: #1e1e1e;
+  h2 {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -0.15rem;
+    line-height: 1.25;
+    text-align: center;
+  }
+  h1 {
+    color: #735c2d;
+  }
+
+  .aboutBrand {
+    margin-top: 5rem;
+  }
+
+  .animateText {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    color: #4f4f4f;
+    --clip-value: 100%;
+
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #ffffff;
+      clip-path: inset(0 0 var(--clip-value) 0);
+      will-change: clip-path;
+    }
+    
+  }
+
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 2rem;
+      letter-spacing: -0.05rem;
+    }
+
+    .animateText {
+      width: 100%;
+    }
+  }
+}
+
+.section4 {
   width: 100%;
   position: relative;
   height: 100vh;
@@ -14,8 +88,6 @@ section {
   align-items: flex-start;
   gap: 2rem;
   overflow: hidden;
-
-  
 
   .smallHead {
     font-size: 1.1rem;
@@ -30,18 +102,18 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 65%;
-    height: 75%;
+    width: 100%;
+    height: 100%;
     z-index: 0;
     pointer-events: none;
   }
 
   /* when clientsPreview is empty (no image shown),
    make the list use normal coloring so text is visible on white */
-.clientsPreview:empty ~ .clientsList {
-  mix-blend-mode: normal;
-  color: #000; /* black on white when no image */
-}
+  .clientsPreview:empty ~ .clientsList {
+    mix-blend-mode: normal;
+    color: #000; /* black on white when no image */
+  }
 
   .clientImgWrapper {
     position: absolute;
@@ -65,31 +137,30 @@ section {
   .clientsList {
     position: absolute;
     top: 50%;
-    left: 43%;
-    transform: translate(-50%, -50%);
+    // left: 43%;
+    // transform: translate(-50%, -50%);
     width: 80%;
     margin-bottom: 8rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 0.75rem;
-    color: #fff;
-    mix-blend-mode: difference;
+    color: #000; /* visible on default white bg */
+    mix-blend-mode: normal;
     z-index: 10;
-    transition: color 250ms ease;
 
     .clientName {
       position: relative;
       display: inline-block;
       cursor: pointer;
-      color: #fff;
+      color: inherit;
 
       h1 {
-    font-family: "DM Sans", sans-serif;
-    font-size: 3rem;
-    line-height: 1;
-    transition: color 0.3s ease;
-  }
+        font-family: "DM Sans", sans-serif;
+        font-size: 3rem;
+        line-height: 1;
+        transition: color 0.3s ease;
+      }
 
       &::after {
         content: "";
@@ -110,18 +181,22 @@ section {
       }
     }
   }
+  .clientsPreview.previewActive ~ .clientsList {
+    color: #fff;
+    mix-blend-mode: difference;
+  }
 
   @media (max-width: 1000px) {
     h1 {
-        font-size: 2rem;
+      font-size: 2rem;
     }
 
     .clientsPreview {
-        width: 100%;
-        height: 100%;
+      width: 100%;
+      height: 100%;
     }
-    .clientsList{
-        width: 100%;
+    .clientsList {
+      width: 50%;
     }
   }
 }
