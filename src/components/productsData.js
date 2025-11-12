@@ -27,6 +27,7 @@ export const productsData = [
     rating: 4,
     reviews: 2,
     desc: "",
+    catogery: "everyday",
     img: "https://palmonas.com/cdn/shop/files/DSC00564_7be16611-c2bb-405a-a9d8-082d6dceb841.jpg?v=1761150835&width=900",
   },
   {
@@ -36,6 +37,7 @@ export const productsData = [
     rating: 5,
     reviews: 1,
     desc: "",
+    catogery: "everyday",
     img: "https://palmonas.com/cdn/shop/files/RG0075.webp?v=1761139969&width=900",
   },
   {
@@ -45,6 +47,7 @@ export const productsData = [
     rating: 5,
     reviews: 1,
     desc: "",
+    catogery: "everyday",
     img: "https://palmonas.com/cdn/shop/files/NK0215.webp?v=1761139192&width=900",
   },
   {
@@ -54,6 +57,7 @@ export const productsData = [
     rating: 5,
     reviews: 1,
     desc: "",
+    catogery: "everyday",
     img: "https://palmonas.com/cdn/shop/files/RG0062-7.webp?v=1760697064&width=900",
   },
   {
@@ -63,6 +67,7 @@ export const productsData = [
     rating: 5,
     reviews: 367,
     desc: "",
+    catogery: "everyday",
     img: "https://palmonas.com/cdn/shop/files/DIAMONDAFAIR_e5bce936-e512-4d65-8312-c3605398cc2e.jpg?v=1744527093",
     img2: "https://palmonas.com/cdn/shop/files/BR064-G_208378bf-3256-4c89-ad69-b75e4aaccc35.jpg?v=1744527093",
   },
@@ -73,6 +78,7 @@ export const productsData = [
     rating: 5,
     reviews: 1587,
     desc: "",
+    catogery: "everyday",
     img: "https://palmonas.com/cdn/shop/files/01_e869a853-ae2b-4543-8f22-61455b80f6a6.webp?v=1744528231",
     img2: "https://palmonas.com/cdn/shop/files/product_1_4ece22f3-45f4-4c3c-b306-d91f8c41fe28.jpg?v=1754386754",
     vid1: "https://palmonas.com/cdn/shop/videos/c/vp/f99b0ab216d343f78d7fdf847c694775/f99b0ab216d343f78d7fdf847c694775.HD-1080p-7.2Mbps-54319073.mp4?v=0",
@@ -83,6 +89,7 @@ export const productsData = [
     price: 2258.00,
     rating: 5,
     reviews: 658,
+    catogery: "everyday",
     desc: "Sleek and elegant, these 18k gold plated Athena solitaire hoop earrings feature sparkling white cubic zirconia stones for a refined, minimalist look. Their versatile hoop design adds subtle sophistication to any outfit, while the waterproof and anti-tarnish finish ensures lasting shine. Perfect for everyday wear, office styling, or evening occasions, these earrings are a timeless addition to your jewellery collection. STYLING TIP: Pair with casual tops, button-down shirts, or simple dresses for subtle sparkle.",
     img: "https://palmonas.com/cdn/shop/files/PM-EARRINGS-032_3_0040.jpg?v=1744528692",
     img2: "https://palmonas.com/cdn/shop/files/PM-EARRINGS-032_1_ca866188-eb2f-491f-ae6d-e42e9501725b.jpg?v=1744528692",

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from 'react-toastify';
 
 const CartContext = createContext();
 
@@ -10,10 +11,14 @@ export const CartProvider = ({ children }) => {
     setcartItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
+        toast.info(`${product.name} quantity updated 🛍️`);
         return prev.map((item) =>
           item.id === product.id ? { ...item, qty: item.qty + 1 } : item
         );
-      } else return [...prev, { ...product, qty: 1 }];
+      } else {
+        toast.success(`${product.name} added to your bag 🎉`);
+        return [...prev, { ...product, qty: 1 }];
+      }
     });
   };
 

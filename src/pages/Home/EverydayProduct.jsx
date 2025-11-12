@@ -1,11 +1,15 @@
 import style from "./Home.module.scss";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/cartSlice.js";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { EveryDayProducts } from "./everydayProductData.js";
+import { useSelector } from 'react-redux';
 import roseGoldSampleImage from "../../assets/Model_Images/roseGoldSample.jpg";
 import solidGoldSampleImage from "../../assets/Model_Images/solidGoldSample.jpg";
 
 const EverydayProduct = () => {
+  const EveryDayProducts = useSelector(state => state.products.everydayProducts);
+  const dispatch = useDispatch();
   const [hoveredId, setHoveredId] = useState(null);
   const [view1CurrentIndex, setview1CurrentIndex] = useState(0);
 
@@ -50,7 +54,7 @@ const EverydayProduct = () => {
             >
               <motion.img
                 className={style.productImage}
-                src={item.image}
+                src={item.img}
                 alt=""
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
@@ -84,6 +88,7 @@ const EverydayProduct = () => {
                     duration: 0.4,
                     ease: [0.25, 0.1, 0.36, 1],
                   }}
+                  onClick={() => dispatch(addToCart(item))}
                 >
                   <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>
                   <p>Add to Bag</p>

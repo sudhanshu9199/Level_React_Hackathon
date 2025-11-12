@@ -1,4 +1,5 @@
 import style from "./Navbar.module.scss";
+import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavbarAnimation } from "./useNavbarAnimation";
@@ -37,6 +38,8 @@ const Navbar = () => {
   const { show } = useNavbarAnimation();
   const location = useLocation();
   const { setsearchTerm } = useSearch();
+  const cartItems = useSelector((state) => state.cart.items);
+  const totalItems = cartItems.reduce((acc, item) => acc + item.qty, 0);
 
   const isProductPage = location.pathname === "/products";
 
@@ -113,8 +116,9 @@ const Navbar = () => {
           </p>
         </NavLink>
         <i className={`ri-user-line ${style.userIcon}`}></i>
-        <NavLink to="/cart">
+        <NavLink to="/cart" className={style.cartIconWrapper}>
           <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>
+          {totalItems > 0 && <span className={style.cartCount}>{totalItems}</span>}
         </NavLink>
       </div>
     </motion.nav>

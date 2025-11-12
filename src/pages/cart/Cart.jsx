@@ -1,8 +1,15 @@
 import style from "./Cart.module.scss";
-import { useCart } from "../../context/CartContext";
+import { useSelector, useDispatch } from "react-redux";
+import { updateQuantity, removeFromCart } from "../../Redux/cartSlice.js";
 import { Link } from "react-router";
 const Cart = () => {
-    const { cartItems, updateQuantity, removeFromCart, totalPrice } = useCart();
+    const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.qty,
+    0
+  );
   return (
     <div className={style.cartFullPage}>
       <div className={style.left}>
@@ -18,7 +25,7 @@ const Cart = () => {
             <p className={style.empty}>Your bag is empty 👜</p>
           ) : (
             cartItems.map(item => (
-          <div className={style.item}>
+          <div key={item.id} className={style.item}>
             <div className={style.first1}>
               <img className={style.img} src={item.img} alt={item.name} />
               <p className={style.name}>{item.name}</p>
@@ -32,16 +39,16 @@ const Cart = () => {
               </p>
             </div>
             <div className={style.quantityControl}>
-              <i className={`ri-subtract-line ${style.subtIcon}`} onClick={() => updateQuantity(item.id, item.qty - 1)}></i>
+              <i className={`ri-subtract-line ${style.subtIcon}`} onClick={() => dispatch(updateQuantity({ id: item.id, qty: item.qty - 1 }))}></i>
               <p className={style.quantity}>{item.qty}</p>
-              <i className={`ri-add-line ${style.addIcon}`} onClick={() => updateQuantity(item.id, item.qty + 1)}></i>
+              <i className={`ri-add-line ${style.addIcon}`} onClick={() => dispatch(updateQuantity({ id: item.id, qty: item.qty + 1 }))}></i>
             </div>
             <p className={style.third1}>
               ₹ <span>{item.price * item.qty}</span>
             </p>
             <i
                   className={`ri-close-line ${style.removeIcon}`}
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => dispatch(removeFromCart(item.id))}
                 ></i>
           </div>
             ))

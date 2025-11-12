@@ -1,0 +1,33 @@
+/* Toast container style */
+.luxury-toast {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  border: 1px solid #c9a34c;
+  border-radius: 12px !important;
+  color: #f9f4e8 !important;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(201, 163, 76, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 0.7rem 1rem;
+}
+
+/* Toast message text */
+.luxury-toast-body {
+  color: #f8f5f0 !important;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+
+/* Progress bar (bottom line) */
+.luxury-progress {
+  background: linear-gradient(90deg, #d1b464, #f4e19f, #d1b464) !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+}
+
+/* Hover interaction */
+.luxury-toast:hover {
+  transform: scale(1.02);
+  transition: 0.25s ease-in-out;
+  border-color: #e5c97a;
+}

@@ -1,16 +1,17 @@
-import { useState } from "react";
-import { productsData } from "../productsData";
 import style from "./productDetail.module.scss";
+import { useState } from "react";
+import { productsData } from "../../../components/productsData.js";
 import { useParams } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { useCart } from "../../../context/CartContext";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../Redux/cartSlice.js";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = productsData.find((p) => p.id === Number(id));
 
   const [activeMedia, setActiveMedia] = useState(0);
-  const { addToCart } = useCart();
+  const dispatch = useDispatch();
 
   if (!product) {
     return (
@@ -102,7 +103,7 @@ const ProductDetail = () => {
         <p className={style.desc}>
           {product.desc || "No description available."}
         </p>
-        <button className={style.addToCart} onClick={() => addToCart(product)}>
+        <button className={style.addToCart} onClick={() => dispatch(addToCart(product))}>
             <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>
             <p>Add to Bag</p>
         </button>

@@ -1,15 +1,18 @@
 import style from "./Products.module.scss";
 import { Link } from "react-router";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { productsData } from "./productsData";
+import { productsData } from "../../components/productsData.js";
 import { useEffect, useRef, useState } from "react";
 import { useSearch } from "../../context/SearchContext";
-import { useCart } from "../../context/CartContext";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/cartSlice.js";
 // anime
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/CustomEase";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
 gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 
 const Products = () => {
@@ -21,7 +24,7 @@ const Products = () => {
   const filteredProducts = visibleProducts.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const { addToCart } = useCart();
+  const dispatch = useDispatch();
   const containerRef = useRef(null);
 
   const fetchMoreData = () => {
@@ -94,7 +97,7 @@ const Products = () => {
                     />
                   )}
                 </Link>
-                <p className={style.addToBagBtn} onClick={() => addToCart(product)}>ADD TO BAG</p>
+                <p className={style.addToBagBtn} onClick={() => dispatch(addToCart(product))}>ADD TO BAG</p>
               </div>
               <div className={style.productDetails}>
                 <p className={style.productName}>{product.name}</p>

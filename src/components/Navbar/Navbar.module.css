@@ -101,6 +101,21 @@
   transition: all 0.4s ease;
   z-index: 11;
 }
+.navbar .usersRight .cartIconWrapper {
+  position: relative;
+}
+.navbar .usersRight .cartCount {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  background-color: gold;
+  color: black;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 2px 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
 .navbar .usersRight.equalSpacing {
   flex: 1;
   justify-content: flex-end;
