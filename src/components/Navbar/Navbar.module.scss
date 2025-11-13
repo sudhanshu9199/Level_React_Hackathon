@@ -11,7 +11,6 @@
   z-index: 10;
 
   .textRoll {
-    // border: 2px solid red;
     display: inline-block;
 
     &:hover .letter,
@@ -47,7 +46,6 @@
       text-transform: uppercase;
       letter-spacing: 0.18rem;
       height: 40px;
-      // border: 2px solid red;
       overflow: hidden;
     }
   }
@@ -65,7 +63,6 @@
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    // visibility: hidden;
     filter: drop-shadow(0px 0px 2.5px grey);
     input[type="text"] {
       background: transparent;
@@ -94,40 +91,86 @@
     z-index: 11;
 
     .cartIconWrapper {
-  position: relative;
-}
+      position: relative;
 
-.cartCount {
-  position: absolute;
-  top: -5px;
-  right: -7px;
-  background-color: gold;
-  color: black;
-  font-size: 12px;
-  font-weight: 700;
-  border-radius: 50%;
-  padding: 2px 6px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-}
+      .cartCount {
+        position: absolute;
+        top: -5px;
+        right: -7px;
+        background-color: gold;
+        color: black;
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 50%;
+        padding: 2px 6px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    .userWrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .userIcon {
+        cursor: pointer;
+        transition: transform 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          color: #00b7b7;
+          transform: scale(1.1);
+        }
+      }
+
+      .userMenu {
+        position: absolute;
+        top: 2.2rem;
+        right: 0;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        padding: 0.8rem 0;
+        min-width: 160px;
+        opacity: 0;
+        overflow: hidden;
+        transform-origin: top right;
+        transform-style: preserve-3d;
+        pointer-events: none;
+        z-index: 50;
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+            color: #333;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            cursor: pointer;
+            transition: background 0.2s ease;
+
+            &:hover {
+              background: rgba(0, 183, 183, 0.1);
+              color: #00b7b7;
+            }
+          }
+        }
+      }
+    }
 
     &.equalSpacing {
       flex: 1;
       justify-content: flex-end;
     }
-
     p {
       font-family: "Inter", sans-serif;
       text-transform: uppercase;
       font-size: 1vw;
       cursor: pointer;
       height: 22px;
-      // border: 2px solid red;
       overflow: hidden;
-
-      // &:hover {
-      //   text-decoration: underline 0.1rem goldenrod;
-      //   text-underline-offset: 0.25rem;
-      // }
     }
 
     i {

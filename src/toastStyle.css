@@ -31,3 +31,25 @@
   transition: 0.25s ease-in-out;
   border-color: #e5c97a;
 }
+
+.Toastify__toast-container {
+  position: fixed !important;
+  z-index: 9999 !important;
+  pointer-events: none;
+}
+
+/* Remove any spacing it might cause */
+.Toastify__toast-container--top-center {
+  top: 4rem !important; /* adjust if too close to Navbar */
+}
+
+.Toastify__toast-container--bottom-center {
+  bottom: 1rem !important;
+}
+
+.Toastify__toast-container--top-right,
+.Toastify__toast-container--top-left,
+.Toastify__toast-container--bottom-right,
+.Toastify__toast-container--bottom-left {
+  margin: 0 !important;
+}

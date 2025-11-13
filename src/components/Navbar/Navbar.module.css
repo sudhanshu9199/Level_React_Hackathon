@@ -104,7 +104,7 @@
 .navbar .usersRight .cartIconWrapper {
   position: relative;
 }
-.navbar .usersRight .cartCount {
+.navbar .usersRight .cartIconWrapper .cartCount {
   position: absolute;
   top: -5px;
   right: -7px;
@@ -115,6 +115,52 @@
   border-radius: 50%;
   padding: 2px 6px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+.navbar .usersRight .userWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.navbar .usersRight .userWrapper .userIcon {
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.navbar .usersRight .userWrapper .userIcon:hover {
+  color: #00b7b7;
+  transform: scale(1.1);
+}
+.navbar .usersRight .userWrapper .userMenu {
+  position: absolute;
+  top: 2.2rem;
+  right: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 0.8rem 0;
+  min-width: 160px;
+  opacity: 0;
+  overflow: hidden;
+  transform-origin: top right;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 50;
+}
+.navbar .usersRight .userWrapper .userMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar .usersRight .userWrapper .userMenu ul li {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.navbar .usersRight .userWrapper .userMenu ul li:hover {
+  background: rgba(0, 183, 183, 0.1);
+  color: #00b7b7;
 }
 .navbar .usersRight.equalSpacing {
   flex: 1;

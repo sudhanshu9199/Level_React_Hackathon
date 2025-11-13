@@ -3,7 +3,6 @@ import store from "./Redux/store";
 import Navbar from "./components/Navbar/Navbar";
 import MainRouter from "./router/MainRouter";
 import { SearchProvider } from "./context/SearchContext";
-import { CartProvider } from "./context/CartContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./toastStyle.css";

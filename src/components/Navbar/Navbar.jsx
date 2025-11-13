@@ -4,7 +4,15 @@ import { NavLink, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useNavbarAnimation } from "./useNavbarAnimation";
 import { useSearch } from "../../context/SearchContext";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { UserMenu } from "./UserMenu";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { TextPlugin } from "gsap/TextPlugin";
+
+gsap.registerPlugin(useGSAP, DrawSVGPlugin, TextPlugin);
 
 const RollingText = ({ text }) => {
   const textRef = useRef(null);
@@ -13,7 +21,10 @@ const RollingText = ({ text }) => {
     const el = textRef.current;
     if (!el) return;
     el.addEventListener("mouseover", () => el.classList.remove(style.play));
-    return () => el.removeEventListener("mouseover", () => el.classList.remove(style.play));
+    return () =>
+      el.removeEventListener("mouseover", () =>
+        el.classList.remove(style.play)
+      );
   }, []);
 
   const letters = text.split("").map((letter, i) => (
@@ -42,6 +53,63 @@ const Navbar = () => {
   const totalItems = cartItems.reduce((acc, item) => acc + item.qty, 0);
 
   const isProductPage = location.pathname === "/products";
+  const [menuOpen, setmenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const iconRef = useRef(null);
+
+  useEffect(() => {
+    if (!menuRef.current) return;
+    gsap.killTweensOf(menuRef.current);
+
+    if (menuOpen) {
+      gsap.fromTo(
+        menuRef.current,
+        {
+          opacity: 0,
+          height: 0,
+          rotationX: -90, // Start rolled up
+          pointerEvents: "none",
+        },
+        {
+          opacity: 1,
+          height: "auto", // Open to full height
+          rotationX: 0, // Unroll flat
+          duration: 0.6, // Longer duration for the "roll" feeling
+          ease: "power3.out", // Smooth deceleration
+          pointerEvents: "auto",
+        }
+      );
+    } else {
+      gsap.to(menuRef.current, {
+        // y: -10,
+        opacity: 0,
+        height: 0,
+        // scale: 0.9,
+        duration: 0.4,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => gsap.set(menuRef.current, { pointerEvents: "none" }),
+      });
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        iconRef.current &&
+        !iconRef.current.contains(e.target)
+      ) {
+        setmenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+  const toggleMenu = () => {
+    setmenuOpen((prev) => !prev);
+  };
 
   return (
     <motion.nav
@@ -109,16 +177,23 @@ const Navbar = () => {
         }`}
       >
         <NavLink to="/products">
-          <p
-            className={`rolling-text play ${style.textRoll}`}
-          >
+          <p className={`rolling-text play ${style.textRoll}`}>
             <RollingText text="Heirlooms" />
           </p>
         </NavLink>
-        <i className={`ri-user-line ${style.userIcon}`}></i>
+        <div className={style.userWrapper}>
+          <i
+            ref={iconRef}
+            className={`ri-user-line ${style.userIcon}`}
+            onClick={toggleMenu}
+          ></i>
+          <UserMenu ref={menuRef} isOpen={menuOpen} />
+        </div>
         <NavLink to="/cart" className={style.cartIconWrapper}>
           <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>
-          {totalItems > 0 && <span className={style.cartCount}>{totalItems}</span>}
+          {totalItems > 0 && (
+            <span className={style.cartCount}>{totalItems}</span>
+          )}
         </NavLink>
       </div>
     </motion.nav>
