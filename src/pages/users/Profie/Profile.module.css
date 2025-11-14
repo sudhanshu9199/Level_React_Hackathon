@@ -1,0 +1,192 @@
+.profileContainer {
+  padding: 5rem 2rem 0 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  height: 98vh;
+}
+.profileContainer .left {
+  border: 2px solid green;
+  border-radius: 1rem;
+  width: 30%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.profileContainer .left .weightStyle {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+.profileContainer .left .weightStyle .pic {
+  border: 2px solid rgb(255, 208, 0);
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.profileContainer .left .weightStyle .Smodel {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  top: 75%;
+  right: 55%;
+  rotate: 8deg;
+  transform: translate(-50%, -50%);
+}
+.profileContainer .left .weightStyle .userDetails {
+  font-family: "Arimo", sans-serif;
+}
+.profileContainer .left .weightStyle .userDetails .name {
+  font-size: 1.5rem;
+  line-height: 0.9;
+}
+.profileContainer .left .weightStyle .userDetails .level {
+  font-size: 0.9rem;
+  color: rgb(200, 136, 9);
+}
+.profileContainer .left .signOuts {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  font-family: "Arimo", sans-serif;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.profileContainer .left .signOuts i {
+  font-size: 1.5rem;
+}
+.profileContainer .left .signOuts p {
+  font-size: 1.3rem;
+}
+.profileContainer .left .signOuts:active {
+  transform: scale(0.95);
+}
+.profileContainer .right {
+  width: 70%;
+  height: 100%;
+  padding: 1rem 2rem 1rem 2rem;
+  font-family: "Arimo", sans-serif;
+}
+.profileContainer .right .headText {
+  margin-bottom: 2rem;
+}
+.profileContainer .right .headText h1 {
+  font-size: 2.4rem;
+}
+.profileContainer .right .headText p {
+  opacity: 0.8;
+}
+.profileContainer .right .ContactInfo {
+  border: 2px solid yellowgreen;
+  border-radius: 0.8rem;
+  margin-bottom: 3rem;
+}
+.profileContainer .right .ContactInfo .header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid red;
+}
+.profileContainer .right .ContactInfo .header h3 {
+  font-size: 1.5rem;
+}
+.profileContainer .right .ContactInfo .header .edits {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.profileContainer .right .ContactInfo .infos {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2rem;
+}
+.profileContainer .right .ContactInfo .infos .names .legend,
+.profileContainer .right .ContactInfo .infos .emails .legend,
+.profileContainer .right .ContactInfo .infos .phones .legend,
+.profileContainer .right .ContactInfo .infos .addresses .legend {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  opacity: 0.7;
+}
+.profileContainer .right .ContactInfo .infos .names input,
+.profileContainer .right .ContactInfo .infos .emails input,
+.profileContainer .right .ContactInfo .infos .phones input,
+.profileContainer .right .ContactInfo .infos .addresses input {
+  width: 18rem;
+  height: 2rem;
+  border: none;
+  font-size: 1.3rem;
+}
+.profileContainer .right .ContactInfo .infos .names input:focus,
+.profileContainer .right .ContactInfo .infos .emails input:focus,
+.profileContainer .right .ContactInfo .infos .phones input:focus,
+.profileContainer .right .ContactInfo .infos .addresses input:focus {
+  outline: none;
+}
+.profileContainer .right .ContactInfo .infos .addresses input {
+  width: 25rem;
+}
+.profileContainer .right .passwordDiv {
+  border: 2px solid yellowgreen;
+  border-radius: 0.8rem;
+  margin-bottom: 3rem;
+}
+.profileContainer .right .passwordDiv .header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid red;
+}
+.profileContainer .right .passwordDiv .header h3 {
+  font-size: 1.5rem;
+}
+.profileContainer .right .passwordDiv .header .edits {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.profileContainer .right .passwordDiv .passwordArea {
+  padding: 1.5rem;
+}
+.profileContainer .right .passwordDiv .passwordArea input {
+  width: 25rem;
+  height: 2rem;
+  border: none;
+  font-size: 1.5rem;
+  letter-spacing: 0.7rem;
+}
+.profileContainer .right .passwordDiv .passwordArea input:focus {
+  outline: none;
+}
+.profileContainer .right .saveBtnArea {
+  display: flex;
+  justify-content: flex-end;
+}
+.profileContainer .right .saveBtnArea button {
+  font-size: 1.2rem;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  background: #B49B7A;
+  color: white;
+  border-radius: 0.5rem;
+}
+.profileContainer .right .saveBtnArea button:active {
+  transform: scale(0.95);
+}/*# sourceMappingURL=Profile.module.css.map */

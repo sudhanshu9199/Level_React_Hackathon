@@ -6,9 +6,11 @@ import { useNavbarAnimation } from "./useNavbarAnimation";
 import { useSearch } from "../../context/SearchContext";
 import { useEffect, useRef, useState } from "react";
 import { UserMenu } from "./UserMenu";
+import { useUserMenuAnimation } from "./useUserMenuAnimation";
+
+
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
 
@@ -57,41 +59,7 @@ const Navbar = () => {
   const menuRef = useRef(null);
   const iconRef = useRef(null);
 
-  useEffect(() => {
-    if (!menuRef.current) return;
-    gsap.killTweensOf(menuRef.current);
-
-    if (menuOpen) {
-      gsap.fromTo(
-        menuRef.current,
-        {
-          opacity: 0,
-          height: 0,
-          rotationX: -90, // Start rolled up
-          pointerEvents: "none",
-        },
-        {
-          opacity: 1,
-          height: "auto", // Open to full height
-          rotationX: 0, // Unroll flat
-          duration: 0.6, // Longer duration for the "roll" feeling
-          ease: "power3.out", // Smooth deceleration
-          pointerEvents: "auto",
-        }
-      );
-    } else {
-      gsap.to(menuRef.current, {
-        // y: -10,
-        opacity: 0,
-        height: 0,
-        // scale: 0.9,
-        duration: 0.4,
-        duration: 0.3,
-        ease: "power2.in",
-        onComplete: () => gsap.set(menuRef.current, { pointerEvents: "none" }),
-      });
-    }
-  }, [menuOpen]);
+  useUserMenuAnimation(menuOpen, menuRef);
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -187,7 +155,7 @@ const Navbar = () => {
             className={`ri-user-line ${style.userIcon}`}
             onClick={toggleMenu}
           ></i>
-          <UserMenu ref={menuRef} isOpen={menuOpen} />
+          <UserMenu ref={menuRef} isOpen={menuOpen} setmenuOpen={setmenuOpen}/>
         </div>
         <NavLink to="/cart" className={style.cartIconWrapper}>
           <i className={`ri-shopping-bag-4-line ${style.bag}`}></i>

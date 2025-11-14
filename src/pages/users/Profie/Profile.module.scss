@@ -1,0 +1,212 @@
+.profileContainer {
+  padding: 5rem 2rem 0 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  height: 98vh;
+
+  .left {
+    border: 2px solid green;
+    border-radius: 1rem;
+    width: 30%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .weightStyle {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      position: relative;
+      .pic {
+        border: 2px solid rgb(255, 208, 0);
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        object-fit: cover;
+        // object-position: top;
+      }
+      .Smodel {
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50px;
+        object-fit: cover;
+        object-position: top;
+        top: 75%;
+        right: 55%;
+        rotate: 8deg;
+        transform: translate(-50%, -50%);
+      }
+
+      .userDetails {
+        font-family: "Arimo", sans-serif;
+        .name {
+          font-size: 1.5rem;
+          line-height: 0.9;
+        }
+        .level {
+          font-size: 0.9rem;
+          color: rgb(200, 136, 9);
+        }
+      }
+    }
+
+    .signOuts {
+        display: flex;
+        align-items: flex-end;
+        gap: 0.5rem;
+        font-family: "Arimo", sans-serif;
+        cursor: pointer;
+        width: fit-content;
+
+        i {
+            font-size: 1.5rem;
+        }
+        p {
+            font-size: 1.3rem;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+  }
+  .right {
+    // border: 2px solid red;
+    // border-radius: 1rem;
+    width: 70%;
+    height: 100%;
+    padding: 1rem 2rem 1rem 2rem;
+    font-family: "Arimo", sans-serif;
+
+    .headText {
+      margin-bottom: 2rem;
+      h1 {
+        font-size: 2.4rem;
+      }
+      p {
+        opacity: 0.8;
+      }
+    }
+
+    .ContactInfo {
+      border: 2px solid yellowgreen;
+      border-radius: 0.8rem;
+      margin-bottom: 3rem;
+
+      .header {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid red;
+
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        .edits {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          cursor: pointer;
+        }
+      }
+
+      .infos {
+        padding: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        // column-gap: 3rem;
+        row-gap: 2rem;
+
+        .names,
+        .emails,
+        .phones,
+        .addresses {
+          .legend {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.7;
+          }
+          input {
+            width: 18rem;
+            height: 2rem;
+            border: none;
+            font-size: 1.3rem;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        .addresses {
+          input {
+            width: 25rem;
+          }
+        }
+      }
+    }
+
+    .passwordDiv {
+        border: 2px solid yellowgreen;
+      border-radius: 0.8rem;
+      margin-bottom: 3rem;
+
+      .header {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid red;
+
+        h3 {
+          font-size: 1.5rem;
+        }
+        .edits {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          cursor: pointer;
+        }
+    }
+
+    .passwordArea {
+        padding: 1.5rem;
+
+        input {
+            width: 25rem;
+            height: 2rem;
+            border: none;
+            font-size: 1.5rem;
+            letter-spacing: 0.7rem;
+            &:focus {
+              outline: none;
+            }
+          }
+    }
+    }
+
+    .saveBtnArea {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            font-size: 1.2rem;
+            padding: 0.6rem 0.8rem;
+            border: none;
+            background: #B49B7A;
+            color: white;
+            border-radius: 0.5rem;
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+  }
+}
