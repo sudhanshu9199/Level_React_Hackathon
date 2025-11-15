@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router";
 import { lazy } from "react";
+import Register from "../Auth/Register/Register.jsx";
+import Login from "../Auth/Login/Login.jsx";
 const Home = lazy(() => import("../pages/Home/Home"));
 const Products = lazy(() => import("../pages/Product/Products.jsx"));
 const ProductDetail = lazy(() =>
@@ -18,6 +20,8 @@ const MainRouter = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/about" element={<About />} />
       <Route path="/userAccount" element={<Profile />} />
+      <Route path="/auth/register" element={<Register />} />
+      <Route path="/auth/login" element={<Login />} />
     </Routes>
   );
 };

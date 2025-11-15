@@ -1,6 +1,6 @@
 import style from "./Home.module.scss";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../Redux/cartSlice.js";
+import { addToCart } from "../../Redux/Slice/cartSlice.js";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useSelector } from 'react-redux';

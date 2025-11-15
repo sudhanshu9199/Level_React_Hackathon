@@ -4,7 +4,7 @@ import { productsData } from "../../../components/productsData.js";
 import { useParams } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../../Redux/cartSlice.js";
+import { addToCart } from "../../../Redux/Slice/cartSlice.js";
 
 const ProductDetail = () => {
   const { id } = useParams();

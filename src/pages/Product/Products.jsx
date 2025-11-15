@@ -5,7 +5,7 @@ import { productsData } from "../../components/productsData.js";
 import { useEffect, useRef, useState } from "react";
 import { useSearch } from "../../context/SearchContext";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../Redux/cartSlice.js";
+import { addToCart } from "../../Redux/Slice/cartSlice.js";
 // anime
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";

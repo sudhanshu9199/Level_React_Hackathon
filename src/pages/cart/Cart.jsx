@@ -1,6 +1,6 @@
 import style from "./Cart.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { updateQuantity, removeFromCart } from "../../Redux/cartSlice.js";
+import { updateQuantity, removeFromCart } from "../../Redux/Slice/cartSlice.js";
 import { Link } from "react-router";
 const Cart = () => {
     const dispatch = useDispatch();
