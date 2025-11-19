@@ -3,10 +3,12 @@ import style from "./Navbar.module.scss";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../Redux/Slice/authSlice";
+import useLogout from "../../Auth/useLogout";
 
 export const UserMenu = forwardRef(({ isOpen, setmenuOpen }, ref) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const logout = useLogout();
   const { user, isAuthenticated } = useSelector((state) => state.auth);
 
   if (!isOpen) return null;
@@ -16,9 +18,10 @@ export const UserMenu = forwardRef(({ isOpen, setmenuOpen }, ref) => {
   };
 
   const handleLogout = () => {
-    dispatch(logoutUser());
+    // dispatch(logoutUser());
     setmenuOpen(false);
-    navigate("/");
+    // navigate("/");
+    logout();
   };
   return (
     <div ref={ref} className={`${style.userMenu}`}>
@@ -28,7 +31,7 @@ export const UserMenu = forwardRef(({ isOpen, setmenuOpen }, ref) => {
             <li onClick={() => handleClick("/userAccount")}>My Profile</li>
             <li onClick={() => handleClick("/order")}>Orders</li>
             <li onClick={() => handleClick("/userAccount")}>Add Products</li>
-            <li onClick={() => handleLogout}>Logout</li>
+            <li onClick={handleLogout}>Logout</li>
           </>
         ) : (
           <>

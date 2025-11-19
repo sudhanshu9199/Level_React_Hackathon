@@ -1,7 +1,11 @@
 import style from './Profile.module.scss';
 import shraddhaNewModel from '../../../assets/Model_Images/Shraddha_newModel1.jpg';
 import sudhanshuImg from '../../../assets/Model_Images/SudhanshuImg.png';
+import { useSelector } from 'react-redux';
+import useLogout from '../../../Auth/useLogout';
 const Profile = () => {
+    const { user } = useSelector(state => state.auth);
+    const logout = useLogout();
   return (
     <div className={style.profileContainer}>
         <div className={style.left}>
@@ -13,7 +17,7 @@ const Profile = () => {
                     <div className={style.level}>Platinum Member</div>
                 </div>
             </div>
-            <div className={style.signOuts}>
+            <div onClick={logout} className={style.signOuts}>
                 <i className="ri-logout-box-r-line"></i>
                 <p>Logout</p>
             </div>
