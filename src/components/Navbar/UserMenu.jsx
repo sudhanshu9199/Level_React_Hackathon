@@ -7,7 +7,7 @@ import { logoutUser } from "../../Redux/Slice/authSlice";
 export const UserMenu = forwardRef(({ isOpen, setmenuOpen }, ref) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
 
   if (!isOpen) return null;
   const handleClick = (path) => {
@@ -23,12 +23,12 @@ export const UserMenu = forwardRef(({ isOpen, setmenuOpen }, ref) => {
   return (
     <div ref={ref} className={`${style.userMenu}`}>
       <ul>
-        {user ? (
+        {isAuthenticated && user ? (
           <>
             <li onClick={() => handleClick("/userAccount")}>My Profile</li>
             <li onClick={() => handleClick("/order")}>Orders</li>
             <li onClick={() => handleClick("/userAccount")}>Add Products</li>
-            <li onClick={() => handleClick("/")}>Logout</li>
+            <li onClick={() => handleLogout}>Logout</li>
           </>
         ) : (
           <>

@@ -3,10 +3,13 @@ import style from "./login.module.scss";
 import { useForm } from "react-hook-form";
 import { loginDefaultValues } from "./authSchema";
 import { loginSuccess } from "../../Redux/Slice/authSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { findUserByEmail } from "../../utils/authStorage";
+import { saveAuthData } from "../../utils/authTokenStorage";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -15,12 +18,32 @@ const LoginForm = () => {
   } = useForm({ defaultValues: loginDefaultValues });
 
   const onSubmit = (data) => {
+    const user = findUserByEmail(data.email);
+
+    if(!user) {
+      alert('User not found. Please register first.');
+      return;
+    }
+    if (user.password !== data.password) {
+      alert('Incorrect password!');
+      return;
+    }
+
+    const userData = {
+      name: user.username,
+      email: user.email
+    };
+    const token = 'localStorageToken123'
+
+    saveAuthData(userData, token);
     dispatch(
       loginSuccess({
-        user: { name: "Sudhanshu" },
-        token: "sampleToken123",
+        user: userData,
+        token: token,
       })
     );
+    alert('Login successful!');
+    navigate('/products');
   };
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>

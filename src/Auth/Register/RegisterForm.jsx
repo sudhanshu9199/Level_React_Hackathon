@@ -1,10 +1,11 @@
-import { useForm } from "react-hook-form";
 import style from "./Register.module.scss";
-import { Link } from "react-router";
-
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router";
+import { saveUser } from "../../utils/authStorage";
 import { defaultValues } from "./formSchema";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -12,7 +13,9 @@ const RegisterForm = () => {
   } = useForm({ defaultValues });
 
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
+      const { email, username, password } = data;
+      saveUser({ email, username, password });
+      navigate('/auth/login');
   };
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>

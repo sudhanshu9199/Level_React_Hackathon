@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router";
 import { lazy } from "react";
-import Register from "../Auth/Register/Register.jsx";
-import Login from "../Auth/Login/Login.jsx";
+import ProtectedRoute from "../components/ProtectedRoute.jsx";
 const Home = lazy(() => import("../pages/Home/Home"));
 const Products = lazy(() => import("../pages/Product/Products.jsx"));
 const ProductDetail = lazy(() =>
@@ -10,6 +9,8 @@ const ProductDetail = lazy(() =>
 const Cart = lazy(() => import("../pages/cart/Cart.jsx"));
 const About = lazy(() => import("../pages/About/About.jsx"));
 const Profile = lazy(() => import("../pages/users/Profie/Profile.jsx"));
+const Login = lazy(() => import("../Auth/Login/Login.jsx"));
+const Register = lazy(() => import("../Auth/Register/Register.jsx"));
 
 const MainRouter = () => {
   return (
@@ -19,7 +20,14 @@ const MainRouter = () => {
       <Route path="/product/:id" element={<ProductDetail />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/about" element={<About />} />
-      <Route path="/userAccount" element={<Profile />} />
+      <Route
+        path="/userAccount"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/auth/register" element={<Register />} />
       <Route path="/auth/login" element={<Login />} />
     </Routes>
