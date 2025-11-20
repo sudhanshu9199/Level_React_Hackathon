@@ -6,8 +6,18 @@ export const saveAuthData = (user, token) => {
   const expiryDate = new Date();
   expiryDate.setDate(expiryDate.getDate() + 2);
 
-  localStorage.setItem(AUTH_TOKEN_KEY, token);
-  localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
+// store token only if truthy (avoid storing "null"/"undefined" strings)
+  if (token) {
+    localStorage.setItem(AUTH_TOKEN_KEY, token);
+  } else {
+    localStorage.removeItem(AUTH_TOKEN_KEY);
+  }
+
+  if (user) {
+    localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
+  } else {
+    localStorage.removeItem(AUTH_USER_KEY);
+  }
   localStorage.setItem(TOKEN_EXPIRY_KEY, expiryDate.toISOString());
 };
 
@@ -16,7 +26,7 @@ export const getAuthData = () => {
   const userStr = localStorage.getItem(AUTH_USER_KEY);
   const expiryStr = localStorage.getItem(TOKEN_EXPIRY_KEY);
 
-  if(!token || !userStr || !expiryStr) {
+  if(!userStr || !expiryStr) {
     return null;
   }
 
@@ -26,10 +36,20 @@ export const getAuthData = () => {
     return null;
   }
 
+  if(!token || token === 'null' || token === 'undefined') {
+
+      try {
+        const user = JSON.parse(userStr);
+        return { user, token: null };
+      } catch{
+        removeAuthData();
+        return null;
+      }
+  }
   try {
     const user = JSON.parse(userStr);
     return { user, token };
-  } catch{
+  } catch {
     removeAuthData();
     return null;
   }

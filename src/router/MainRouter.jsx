@@ -8,7 +8,7 @@ const ProductDetail = lazy(() =>
 );
 const Cart = lazy(() => import("../pages/cart/Cart.jsx"));
 const About = lazy(() => import("../pages/About/About.jsx"));
-const Profile = lazy(() => import("../pages/users/Profie/Profile.jsx"));
+const Profile = lazy(() => import("../pages/users/Profile/Profile.jsx"));
 const Login = lazy(() => import("../Auth/Login/Login.jsx"));
 const Register = lazy(() => import("../Auth/Register/Register.jsx"));
 
