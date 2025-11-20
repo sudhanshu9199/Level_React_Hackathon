@@ -1,3 +1,4 @@
+import { findUserByEmail } from "./authStorage";
 const AUTH_TOKEN_KEY = "authToken";
 const AUTH_USER_KEY = "authUser";
 const TOKEN_EXPIRY_KEY = "tokenExpiry";
@@ -26,9 +27,7 @@ export const getAuthData = () => {
   const userStr = localStorage.getItem(AUTH_USER_KEY);
   const expiryStr = localStorage.getItem(TOKEN_EXPIRY_KEY);
 
-  if(!userStr || !expiryStr) {
-    return null;
-  }
+  if(!userStr || !expiryStr) return null;
 
   const expiryDate = new Date(expiryStr);
   if (new Date() > expiryDate) {
@@ -36,23 +35,41 @@ export const getAuthData = () => {
     return null;
   }
 
-  if(!token || token === 'null' || token === 'undefined') {
-
-      try {
-        const user = JSON.parse(userStr);
-        return { user, token: null };
-      } catch{
-        removeAuthData();
-        return null;
-      }
-  }
+  let parsedUser;
   try {
-    const user = JSON.parse(userStr);
-    return { user, token };
+    parsedUser = JSON.parse(userStr);
   } catch {
     removeAuthData();
     return null;
   }
+
+  const canonicalEmail = parsedUser?.email || parsedUser?.emailAddress || null;
+  if (canonicalEmail) {
+    const canonical = findUserByEmail(canonicalEmail);
+    if(canonical) {
+        return { user: canonical, token: token || null };
+    }
+  }
+
+  return { user: parsedUser, token: token || null };
+
+//   if(!token || token === 'null' || token === 'undefined') {
+
+//       try {
+//         const user = JSON.parse(userStr);
+//         return { user, token: null };
+//       } catch{
+//         removeAuthData();
+//         return null;
+//       }
+//   }
+//   try {
+//     const user = JSON.parse(userStr);
+//     return { user, token };
+//   } catch {
+//     removeAuthData();
+//     return null;
+//   }
 };
 
 export const removeAuthData = () => {

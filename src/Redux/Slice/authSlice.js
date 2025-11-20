@@ -4,6 +4,7 @@ import {
   removeAuthData,
   saveAuthData,
 } from "../../utils/authTokenStorage";
+import { updateUser as persistUpdateUser } from "../../utils/authStorage";
 
 const initialState = {
   user: null,
@@ -50,10 +51,21 @@ const authSlice = createSlice({
     updateProfile: (state, action) => {
       if (!state.user) return;
       const updates = action.payload;
-      state.user = { ...state.user, ...updates };
 
-      const token = state.token || null;
-      saveAuthData(state.user, token);
+      const emailKey = state.user.email || state.user.emailAddress || null;
+      if (!emailKey) {
+        state.user = { ...state.user, ...updates };
+        saveAuthData(state.user, state.token || null);
+        return;
+      }
+      state.user = { ...state.user, ...updates, email: emailKey };
+
+      saveAuthData(state.user, state.token || null);
+      try {
+        persistUpdateUser(emailKey, updates);
+      } catch (err) {
+        console.warn("persistUpdateUser failed:", err);
+      }
     },
   },
 });

@@ -18,9 +18,7 @@ export const UserMenu = forwardRef(({ isOpen, setmenuOpen }, ref) => {
   };
 
   const handleLogout = () => {
-    // dispatch(logoutUser());
     setmenuOpen(false);
-    // navigate("/");
     logout();
   };
   return (
